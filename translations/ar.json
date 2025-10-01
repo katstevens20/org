@@ -207,8 +207,8 @@
       "copyright": "جميع الحقوق محفوظة © الجمعية المغربية للدفاع عن حقوق الأب والأبناء",
       "legal": {
         "org_name": "الجمعية المغربية للدفاع عن حقوق الأب والأبناء",
-        "address": "شارع الحسن الثاني، رقم 123، الرباط 10000، المغرب",
-        "receipt": "وصل الإيداع رقم 2024/123 - 15 يناير 2024",
+        "address": "الرباط 10000، المغرب",
+        "receipt": "وصل الإيداع رقم 2023/123 - 01/01/2023",
         "dahir": "ظهير 15 نوفمبر 1958 (1.58.376)",
         "objective": "الهدف: الدفاع عن حقوق الآباء والأطفال، المساعدة القانونية، الوساطة الأسرية (القانون 09-08)"
       },
@@ -228,7 +228,7 @@
         "email": "ultradrisdzawa@gmail.com"
       },
       "contact": {
-        "email": "<i class=\"fas fa-envelope\"></i> <a href=\"mailto:dpo@amddpe.ma\">dpo@amddpe.ma</a>"
+        "email": "<i class=\"fas fa-envelope\"></i> <a href=\"mailto:ultradrisdzawa@gmail.com\">ultradrisdzawa@gmail.com</a>"
       }
     },
     "common": {
@@ -294,9 +294,9 @@
       "org_name": "الاسم",
       "org_name_value": "الجمعية المغربية للدفاع عن حقوق الأب والأبناء",
       "address": "العنوان",
-      "address_value": "شارع الحسن الثاني، رقم 123، الرباط 10000، المغرب",
+      "address_value": " الرباط 10000، المغرب",
       "receipt": "الوصل",
-      "receipt_value": "رقم 2024/123 بتاريخ 15 يناير 2024",
+      "receipt_value": "رقم 2023/123 بتاريخ 01/01/2023",
       "dahir": "الإطار القانوني",
       "dahir_value": "ظهير 15 نوفمبر 1958 (1.58.376)",
       "objective": "الغرض",
@@ -314,14 +314,14 @@
         "headquarters": "مقر الجمعية:",
         "headquarters_value": "شارع الحسن الثاني، رقم 123، الرباط 10000، المملكة المغربية",
         "receipt_number": "رقم وتاريخ وصل الإيداع:",
-        "receipt_value": "وصل رقم: 2024/123 بتاريخ: 15 يناير 2024",
+        "receipt_value": "وصل رقم: 2023/123 بتاريخ: 01/01/2023",
         "legal_framework": "الإطار القانوني:",
         "dahir_reference": "جمعية منظمة طبقاً لأحكام الظهير الشريف رقم 1.58.376 الصادر في 3 جمادى الأولى 1378 (15 نوفمبر 1958) المتعلق بتنظيم حق تكوين الجمعيات",
         "publication": "منشور بالجريدة الرسمية:",
         "publication_value": "الجريدة الرسمية عدد 5432 بتاريخ 30 يناير 2024"
       },
       "dpo": {
-        "email": "البريد الإلكتروني: <a href=\"mailto:dpo@amddpe.ma\">dpo@amddpe.ma</a>"
+        "email": "البريد الإلكتروني: <a href=\"mailto:ultradrisdzawa@gmail.com\">ultradrisdzawa@gmail.com</a>"
       },
       "object": {
         "title": "الموضوع الاجتماعي للجمعية",
@@ -335,7 +335,7 @@
       },
       "footer": {
         "dahir": "ظهير 1958",
-        "receipt": "وصل الإيداع: 2024/123",
+        "receipt": "وصل الإيداع: 2023/123",
         "non_profit": "جمعية غير ربحية",
         "data_protection": "حماية البيانات"
       },
@@ -357,19 +357,19 @@
         "name": "الجهة المسؤولة:",
         "name_value": "الجمعية المغربية للدفاع عن حقوق الأب والأبناء",
         "address": "العنوان:",
-        "address_value": "شارع الحسن الثاني، رقم 123، الرباط 10000، المغرب",
+        "address_value": " الرباط 10000، المغرب",
         "email": "البريد الإلكتروني:",
-        "email_value": "<a href=\"mailto:dpo@amddpe.ma\">dpo@amddpe.ma</a>",
+        "email_value": "<a href=\"mailto:ultradrisdzawa@gmail.com\">ultradrisdzawa@gmail.com</a>",
         "registration": "رقم التصريح:",
-        "registration_value": "وصل الإيداع رقم 2024/123"
+        "registration_value": "وصل الإيداع رقم 2023/123"
       },
       "contact": {
         "phone_label": "الهاتف:",
         "phone_value": "+212 5 37 XX XX XX",
         "address_label": "العنوان:",
-        "address_value": "شارع الحسن الثاني، رقم 123، الرباط 10000، المغرب",
+        "address_value": " الرباط 10000، المغرب",
         "email_label": "البريد الإلكتروني:",
-        "email_link": "dpo@amddpe.ma"
+        "email_link": "ultradrisdzawa@gmail.com"
       }
     },
     "language": {
@@ -398,8 +398,8 @@
         "right5": "الحق في تقديم شكوى إلى اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي (CNDP)",
         "contact_title": "5. الاتصال",
         "dpo": "مسؤول حماية البيانات:",
-        "dpo_email": "البريد الإلكتروني: dpo@amddpe.ma",
-        "address": "العنوان: شارع الحسن الثاني، رقم 123، الرباط 10000، المغرب"
+        "dpo_email": "البريد الإلكتروني: ultradrisdzawa@gmail.com",
+        "address": "العنوان: الرباط 10000، المغرب"
       },
       "terms": {
         "title": "الشروط والأحكام",
