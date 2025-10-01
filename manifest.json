@@ -1,0 +1,44 @@
+{
+    "name": "الجمعية المغربية للدفاع عن حقوق الأب والأبناء",
+    "short_name": "AMDDPE",
+    "description": "الجمعية المغربية للدفاع عن حقوق الأب والأبناء - نحو عدالة أسرية حقيقية",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f0f8f0",
+    "theme_color": "#2c5530",
+    "orientation": "portrait-primary",
+    "lang": "ar",
+    "dir": "rtl",
+    "icons": [
+        {
+            "src": "favicon-16x16.svg",
+            "sizes": "16x16",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "favicon.svg",
+            "sizes": "32x32",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "apple-touch-icon.svg",
+            "sizes": "180x180",
+            "type": "image/svg+xml",
+            "purpose": "apple-touch-icon"
+        },
+        {
+            "src": "android-chrome-192x192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "android-chrome-192x192.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["social", "legal", "family", "rights"],
+    "screenshots": []
+}

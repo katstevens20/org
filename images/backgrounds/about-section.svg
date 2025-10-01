@@ -1,0 +1,29 @@
+<svg width='1920' height='1080' xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+            <linearGradient id='moroccanGradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' style='stop-color:#2c5530;stop-opacity:1' />
+                <stop offset='50%' style='stop-color:#d4af37;stop-opacity:1' />
+                <stop offset='100%' style='stop-color:#8b4513;stop-opacity:1' />
+            </linearGradient>
+            <pattern id='moroccanPattern' x='0' y='0' width='40' height='40' patternUnits='userSpaceOnUse'>
+                <polygon points='20,0 40,20 20,40 0,20' fill='rgba(255,255,255,0.1)'/>
+            </pattern>
+        </defs>
+        <rect width='100%' height='100%' fill='url(#moroccanGradient)'/>
+        <rect width='100%' height='100%' fill='url(#moroccanPattern)'/>
+        <text x='960' y='400' font-family='Arial, sans-serif' font-size='48' font-weight='bold' text-anchor='middle' fill='white' opacity='0.9'>
+            🇲🇦 Moroccan Association
+        </text>
+        <text x='960' y='480' font-family='Arial, sans-serif' font-size='32' text-anchor='middle' fill='white' opacity='0.8'>
+            Family Rights &amp; Justice
+        </text>
+        <text x='960' y='600' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='white' opacity='0.7'>
+            Background: moroccan traditional architecture family unity warm lighting
+        </text>
+        <text x='960' y='700' font-family='Arial, sans-serif' font-size='18' text-anchor='middle' fill='white' opacity='0.6'>
+            Generated placeholder for: about-section
+        </text>
+        <text x='960' y='900' font-family='Arial, sans-serif' font-size='16' text-anchor='middle' fill='white' opacity='0.5'>
+            Replace with actual image using AI generation with prompt: 'moroccan traditional architecture family unity warm lighting'
+        </text>
+    </svg>

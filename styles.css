@@ -1,0 +1,4996 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', 'Amiri', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    direction: rtl;
+    text-align: right;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    max-width: 350px;
+}
+
+.logo svg {
+    width: 180px;
+    height: 80px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo:hover svg {
+    transform: scale(1.02);
+}
+
+.logo svg text {
+    transition: all 0.3s ease;
+}
+
+.logo:hover svg text {
+    filter: brightness(1.1);
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+/* Single language mode styling */
+.language-switcher:has(.lang-btn:only-of-type) {
+    gap: 0;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 35px;
+    text-align: center;
+}
+
+/* Arabic-only mode - make button more prominent */
+.language-switcher .lang-btn:only-of-type {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c5530;
+    border-color: #2c5530;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo i {
+    font-size: 1.5rem;
+    color: #ffd700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section with Carousel Background */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    padding: 120px 0 80px;
+}
+
+/* Background Carousel */
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide.moroccan-family {
+    background: linear-gradient(135deg, 
+        rgba(212, 175, 55, 0.9) 0%,
+        rgba(165, 42, 42, 0.8) 30%,
+        rgba(44, 85, 48, 0.9) 70%,
+        rgba(25, 25, 112, 0.8) 100%
+    ),
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(220, 20, 60, 0.2) 0%, transparent 50%),
+    conic-gradient(from 45deg at 50% 50%, 
+        transparent 0deg, 
+        rgba(255, 215, 0, 0.1) 60deg, 
+        transparent 120deg, 
+        rgba(220, 20, 60, 0.1) 180deg, 
+        transparent 240deg, 
+        rgba(255, 215, 0, 0.1) 300deg, 
+        transparent 360deg
+    );
+    background-size: 100% 100%, 200px 200px, 300px 300px, 150px 150px;
+    background-position: center, 0% 0%, 100% 100%, 50% 50%;
+}
+
+.carousel-slide.scales-justice {
+    background: linear-gradient(45deg,
+        rgba(25, 25, 112, 0.95) 0%,
+        rgba(44, 85, 48, 0.9) 25%,
+        rgba(212, 175, 55, 0.85) 50%,
+        rgba(44, 85, 48, 0.9) 75%,
+        rgba(25, 25, 112, 0.95) 100%
+    ),
+    repeating-linear-gradient(90deg,
+        transparent 0px,
+        rgba(255, 215, 0, 0.1) 2px,
+        transparent 4px,
+        transparent 30px
+    ),
+    repeating-linear-gradient(0deg,
+        transparent 0px,
+        rgba(255, 215, 0, 0.1) 2px,
+        transparent 4px,
+        transparent 30px
+    );
+    background-size: 100% 100%, 60px 60px, 60px 60px;
+}
+
+.carousel-slide.atlas-mountains {
+    background: linear-gradient(180deg,
+        rgba(135, 206, 235, 0.8) 0%,
+        rgba(255, 218, 185, 0.7) 20%,
+        rgba(210, 180, 140, 0.8) 40%,
+        rgba(160, 82, 45, 0.9) 60%,
+        rgba(44, 85, 48, 0.95) 80%,
+        rgba(25, 25, 112, 0.9) 100%
+    ),
+    repeating-conic-gradient(from 0deg at 25% 75%,
+        rgba(255, 215, 0, 0.1) 0deg 30deg,
+        transparent 30deg 60deg
+    ),
+    repeating-conic-gradient(from 180deg at 75% 25%,
+        rgba(220, 20, 60, 0.1) 0deg 45deg,
+        transparent 45deg 90deg
+    );
+    background-size: 100% 100%, 100px 100px, 120px 120px;
+}
+
+.carousel-slide.moroccan-architecture {
+    background: linear-gradient(135deg,
+        rgba(212, 175, 55, 0.9) 0%,
+        rgba(220, 20, 60, 0.8) 20%,
+        rgba(44, 85, 48, 0.9) 40%,
+        rgba(25, 25, 112, 0.8) 60%,
+        rgba(165, 42, 42, 0.9) 80%,
+        rgba(212, 175, 55, 0.9) 100%
+    ),
+    repeating-linear-gradient(45deg,
+        transparent 0px,
+        rgba(255, 215, 0, 0.15) 10px,
+        transparent 20px,
+        transparent 40px
+    ),
+    repeating-linear-gradient(-45deg,
+        transparent 0px,
+        rgba(255, 215, 0, 0.1) 8px,
+        transparent 16px,
+        transparent 32px
+    ),
+    radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(220, 20, 60, 0.15) 0%, transparent 50%);
+    background-size: 100% 100%, 80px 80px, 60px 60px, 200px 200px, 250px 250px;
+}
+
+/* Enhanced Carousel Animation Effects */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.1);
+    will-change: opacity, transform;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(0px);
+    transition: filter 1s ease;
+}
+
+.carousel-slide:not(.active)::before {
+    filter: blur(2px);
+}
+
+/* Enhanced Carousel Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(212, 175, 55, 0.9);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.carousel-indicator:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(212, 175, 55, 0.8);
+    transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+    background: rgba(212, 175, 55, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.carousel-indicator.active::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* Add subtle Moroccan patterns as overlay */
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(220, 20, 60, 0.05) 0%, transparent 50%);
+    background-size: 300px 300px, 400px 400px;
+    animation: moroccanPattern 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes moroccanPattern {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-50px, 30px) rotate(120deg); }
+    66% { transform: translate(30px, -50px) rotate(240deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Scroll Indicator Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Enhanced Hero Content Overlay */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Carousel indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+    background: #ffd700;
+    transform: scale(1.2);
+}
+
+.carousel-indicator:hover {
+    background: rgba(255, 215, 0, 0.8);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #2c5530;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: #2c5530;
+    transform: translateY(-3px);
+}
+
+.hero-icon {
+    font-size: 15rem;
+    opacity: 0.1;
+    color: #ffd700;
+}
+
+/* Section Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #2c5530;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-item:hover {
+    transform: translateY(-5px);
+}
+
+.about-icon {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.about-details h3 {
+    color: #2c5530;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-details p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.about-stats {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.stat-item i {
+    font-size: 2rem;
+    color: #2c5530;
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #2c5530;
+}
+
+.service-icon {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.service-card h3 {
+    color: #2c5530;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Rights Section */
+.rights {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.rights-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background: white;
+    border: 2px solid #2c5530;
+    color: #2c5530;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active,
+.tab-button:hover {
+    background: #2c5530;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.right-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.right-item:hover {
+    transform: translateY(-5px);
+}
+
+.right-item i {
+    font-size: 2.5rem;
+    color: #2c5530;
+    margin-bottom: 1rem;
+}
+
+.right-item h4 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.right-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-content {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-content i {
+    font-size: 2rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+.testimonial-content p {
+    color: #666;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-info h4 {
+    color: #2c5530;
+    margin-bottom: 0.25rem;
+}
+
+.author-info span {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.contact-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.privacy-notice {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(44, 85, 48, 0.3);
+}
+
+.privacy-notice i {
+    font-size: 2.5rem;
+    color: #ffd700;
+    flex-shrink: 0;
+}
+
+.privacy-notice p {
+    color: white;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Team Section */
+.team {
+    padding: 80px 0;
+    background: white;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-member {
+    background: white;
+    border: 2px solid #e8f5e8;
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(44, 85, 48, 0.15);
+    border-color: #4a7c59;
+}
+
+.member-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f8f0;
+}
+
+.member-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+}
+
+.member-photo svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.member-title {
+    flex: 1;
+    text-align: right;
+}
+
+.member-title h3 {
+    color: #2c5530;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.member-title h4 {
+    color: #ffd700;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.team-member p {
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2c5530;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Legal Consent Styles */
+.legal-consent {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.consent-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+.consent-checkbox:last-child {
+    margin-bottom: 0;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    margin: 0;
+    transform: scale(1.2);
+    accent-color: #2c5530;
+}
+
+.consent-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.consent-text a {
+    color: #2c5530;
+    text-decoration: underline;
+}
+
+.consent-text a:hover {
+    color: #ffd700;
+}
+
+.required-notice {
+    color: #d32f2f;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Custom Checkbox Styles */
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #2c5530;
+    border-radius: 3px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.consent-checkbox input[type="checkbox"]:checked + .checkmark {
+    background: #2c5530;
+}
+
+.consent-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    top: -2px;
+    left: 2px;
+    font-weight: bold;
+}
+
+/* Footer */
+.footer {
+    background: #2c5530;
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.footer-section p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffd700;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #ffd700;
+    color: #2c5530;
+    transform: translateY(-3px);
+}
+
+.contact-info-footer p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: #2c5530;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-icon {
+        font-size: 8rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rights-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .service-card,
+    .testimonial-card,
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Form Messages */
+/* Enhanced Form Messages */
+.form-message {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 1001;
+    max-width: 500px;
+    width: 90%;
+    animation: slideDown 0.3s ease;
+}
+
+.form-message.success {
+    border-left: 5px solid #4caf50;
+}
+
+.form-message.error {
+    border-left: 5px solid #f44336;
+}
+
+[dir="ltr"] .form-message.success {
+    border-left: none;
+    border-right: 5px solid #4caf50;
+}
+
+[dir="ltr"] .form-message.error {
+    border-left: none;
+    border-right: 5px solid #f44336;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.form-message.success .message-content i {
+    color: #4caf50;
+    font-size: 1.5rem;
+}
+
+.form-message.error .message-content i {
+    color: #f44336;
+    font-size: 1.5rem;
+}
+
+.close-message {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #999;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+[dir="ltr"] .close-message {
+    left: auto;
+    right: 10px;
+}
+
+.close-message:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.loading-icon {
+    font-size: 4rem;
+    color: #ffd700;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Enhanced Animations */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Scroll Animations */
+.slide-in-right {
+    animation: slideInFromRight 0.6s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 0.6s ease-out;
+}
+
+.bounce-in {
+    animation: bounceIn 0.8s ease-out;
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .back-to-top,
+    .contact-form,
+    .hamburger {
+        display: none !important;
+    }
+    
+    .hero {
+        padding: 2rem 0;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero-title {
+        color: #2c5530 !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .section-header h2 {
+        font-size: 18pt;
+        margin-bottom: 1rem;
+    }
+    
+    .service-card,
+    .testimonial-card,
+    .about-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .service-icon,
+    .about-icon,
+    .contact-icon {
+        background: #000;
+    }
+    
+    .hero {
+        background: #000;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus Styles for Accessibility */
+.nav-link:focus,
+.btn:focus,
+.tab-button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid #ffd700;
+    outline-offset: 2px;
+}
+
+/* Skip to Content Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #2c5530;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1001;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Page Header Styles */
+.page-header {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+}
+
+.breadcrumb span {
+    color: #ffd700;
+}
+
+/* Timeline Styles */
+.history-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.history-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.history-timeline::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #2c5530, #4a7c59);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 2rem;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 2rem;
+    text-align: left;
+}
+
+.timeline-year {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex: 1;
+    max-width: 350px;
+}
+
+.timeline-content h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Leadership Styles */
+.leadership-section {
+    padding: 80px 0;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.leader-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.leader-card:hover {
+    transform: translateY(-10px);
+}
+
+.leader-image {
+    margin-bottom: 1.5rem;
+}
+
+.leader-image i {
+    font-size: 6rem;
+    color: #2c5530;
+}
+
+.leader-info h3 {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.leader-title {
+    color: #ffd700;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.leader-bio {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.leader-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.leader-credentials span {
+    background: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #2c5530;
+}
+
+.leader-credentials i {
+    margin-left: 0.5rem;
+    color: #ffd700;
+}
+
+/* Achievements Styles */
+.achievements-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.achievement-icon {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.achievement-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin: 1rem 0;
+}
+
+.achievement-content h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.achievement-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Partners Styles */
+.partners-section {
+    padding: 80px 0;
+}
+
+.partners-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.partner-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.partner-category h3 {
+    color: #2c5530;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.partner-category h3 i {
+    color: #ffd700;
+}
+
+.partner-category ul {
+    list-style: none;
+}
+
+.partner-category ul li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.partner-category ul li:hover {
+    color: #2c5530;
+}
+
+.partner-category ul li:last-child {
+    border-bottom: none;
+}
+
+/* Values Styles */
+.values-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    background: linear-gradient(45deg, #2c5530, #4a7c59);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1.5rem;
+}
+
+.value-card h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.value-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Language Switcher Styles */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1rem;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.lang-btn.active {
+    background: #ffd700;
+    color: #2c5530;
+    border-color: #ffd700;
+}
+
+/* RTL/LTR Direction Support */
+[dir="ltr"] .nav-container {
+    direction: ltr;
+}
+
+[dir="ltr"] .nav-menu {
+    flex-direction: row;
+}
+
+[dir="ltr"] .language-switcher {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+[dir="ltr"] .hero-content {
+    text-align: left;
+}
+
+/* Font adjustments for different languages */
+[lang="fr"], [lang="en"] {
+    font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+[lang="ar"] {
+    font-family: 'Cairo', 'Amiri', sans-serif;
+}
+
+/* Direction-specific adjustments */
+[dir="ltr"] .contact-info-footer p i {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+/* News Page Styles */
+.news-section {
+    padding: 80px 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.news-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.news-card.featured {
+    grid-column: span 2;
+}
+
+.news-image {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-card.featured .news-image {
+    height: 250px;
+}
+
+.news-icon {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.news-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ffd700;
+    color: #2c5530;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.news-content {
+    padding: 2rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.news-date {
+    font-weight: 500;
+}
+
+.news-author {
+    color: #2c5530;
+}
+
+.news-card h3 {
+    color: #2c5530;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.news-card.featured h3 {
+    font-size: 1.6rem;
+}
+
+.news-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: #2c5530;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: #ffd700;
+    transform: translateX(-5px);
+}
+
+.read-more::after {
+    content: '←';
+    transition: transform 0.3s ease;
+}
+
+[dir="ltr"] .read-more::after {
+    content: '→';
+}
+
+.read-more:hover::after {
+    transform: translateX(-3px);
+}
+
+[dir="ltr"] .read-more:hover::after {
+    transform: translateX(3px);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.newsletter-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.newsletter-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.newsletter-form button {
+    background: #ffd700;
+    color: #2c5530;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+    background: #ffed4e;
+    transform: translateY(-2px);
+}
+
+/* Legal Pages Styles */
+.legal-info-section,
+.privacy-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.legal-card,
+.privacy-card {
+    background: white;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.legal-card:hover,
+.privacy-card:hover {
+    transform: translateY(-5px);
+}
+
+.legal-header {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.legal-header i {
+    font-size: 2rem;
+    color: #ffd700;
+}
+
+.legal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.legal-content {
+    padding: 2rem;
+}
+
+/* Official Info Styles */
+.info-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #2c5530;
+}
+
+[dir="ltr"] .info-item {
+    border-left: none;
+    border-right: 4px solid #2c5530;
+}
+
+.info-item strong {
+    color: #2c5530;
+    font-weight: 600;
+}
+
+/* Disclaimer Styles */
+.disclaimer {
+    background: #e8f5e8;
+    border: 1px solid #4a7c59;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.disclaimer i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.disclaimer p {
+    margin: 0;
+    color: #2c5530;
+    font-weight: 500;
+}
+
+/* Object List Styles */
+.object-list h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.object-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.object-list li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-right: 4px solid #ffd700;
+    position: relative;
+}
+
+[dir="ltr"] .object-list li {
+    border-right: none;
+    border-left: 4px solid #ffd700;
+}
+
+.object-list li::before {
+    content: "✓";
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #2c5530;
+    font-weight: bold;
+}
+
+[dir="ltr"] .object-list li::before {
+    right: auto;
+    left: 1rem;
+}
+
+/* Financial Principles */
+.financial-principles {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.principle-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    align-items: flex-start;
+}
+
+.principle-item i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.principle-item h4 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.principle-item p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Data Policy Styles */
+.data-policy h3,
+.data-policy h4 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+}
+
+.data-policy ul {
+    list-style: none;
+    padding: 0;
+}
+
+.data-policy li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-right: 2rem;
+}
+
+[dir="ltr"] .data-policy li {
+    padding-right: 0;
+    padding-left: 2rem;
+}
+
+.data-policy li::before {
+    content: "→";
+    position: absolute;
+    right: 0;
+    color: #2c5530;
+    font-weight: bold;
+}
+
+[dir="ltr"] .data-policy li::before {
+    right: auto;
+    left: 0;
+}
+
+.data-policy li:last-child {
+    border-bottom: none;
+}
+
+.contact-dpo {
+    background: #e8f5e8;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+
+.contact-dpo h4 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+.contact-dpo a {
+    color: #2c5530;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Compliance Styles */
+.compliance-sections {
+    display: grid;
+    gap: 2rem;
+}
+
+.compliance-item h4 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.compliance-item p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-method {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    align-items: flex-start;
+}
+
+.contact-method i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.contact-method strong {
+    color: #2c5530;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact-method a {
+    color: #2c5530;
+    text-decoration: none;
+}
+
+/* Last Update */
+.last-update {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #666;
+    font-style: italic;
+}
+
+.last-update i {
+    color: #2c5530;
+}
+
+/* Privacy Specific Styles */
+.law-reference {
+    background: #e8f5e8;
+    border: 1px solid #4a7c59;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.law-reference i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.controller-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.data-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.category h3 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.category li {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-right: 3px solid #2c5530;
+}
+
+[dir="ltr"] .category li {
+    border-right: none;
+    border-left: 3px solid #2c5530;
+}
+
+.purpose-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.purpose-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    align-items: flex-start;
+}
+
+.purpose-item i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.purpose-item h4 {
+    color: #2c5530;
+    margin-bottom: 0.5rem;
+}
+
+.basis-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.basis-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.basis-item i {
+    color: #2c5530;
+    font-size: 1.2rem;
+}
+
+.rights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.right-item {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.right-item:hover {
+    transform: translateY(-5px);
+}
+
+.right-item i {
+    color: #2c5530;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.right-item h4 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.security-measures {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.measure-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    align-items: flex-start;
+}
+
+.measure-item i {
+    color: #2c5530;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.retention-info p {
+    margin-bottom: 1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.retention-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.retention-info li {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-right: 4px solid #ffd700;
+}
+
+[dir="ltr"] .retention-info li {
+    border-right: none;
+    border-left: 4px solid #ffd700;
+}
+
+.cookies-info p {
+    margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.cookie-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cookie-type {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.cookie-type h4 {
+    color: #2c5530;
+    margin-bottom: 1rem;
+}
+
+.cookie-control {
+    background: #e8f5e8;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #4a7c59;
+}
+
+.dpo-contact p {
+    margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.contact-methods {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.response-time {
+    background: #e8f5e8;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2c5530;
+    font-weight: 500;
+}
+
+/* Consent Form */
+.consent-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.consent-options {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.consent-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    cursor: pointer;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.consent-item:hover {
+    background: #f0f0f0;
+}
+
+.consent-item input[type="checkbox"] {
+    margin: 0;
+    transform: scale(1.2);
+}
+
+.consent-text strong {
+    color: #2c5530;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.consent-text p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.consent-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive Legal Styles */
+@media (max-width: 768px) {
+    .data-categories,
+    .rights-grid,
+    .cookie-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .legal-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .legal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .info-item,
+    .principle-item,
+    .purpose-item,
+    .measure-item,
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .consent-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-content,
+    .consent-form {
+        padding: 1.5rem;
+    }
+    
+    .legal-header {
+        padding: 1.5rem;
+    }
+    
+    .legal-card,
+    .privacy-card {
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .news-card.featured {
+        grid-column: span 1;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-content {
+        padding: 1.5rem;
+    }
+    
+    .news-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Mobile logo adjustments */
+    .logo {
+        max-width: 280px;
+    }
+    
+    .logo svg {
+        width: 140px;
+        height: 60px;
+    }
+    
+    .logo svg text[font-size="11"] {
+        font-size: 9px;
+    }
+    
+    .logo svg text[font-size="8"] {
+        font-size: 6px;
+    }
+    
+    .logo svg text[font-size="7"] {
+        font-size: 5px;
+    }
+}
+    
+    .news-card.featured h3 {
+        font-size: 1.3rem;
+    }
+    
+    .newsletter-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .newsletter-section {
+        padding: 2rem 1rem;
+    }
+}
+    .language-switcher {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 1001;
+        background: rgba(44, 85, 48, 0.9);
+        padding: 0.5rem;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+
+    [dir="ltr"] .language-switcher {
+        right: auto;
+        left: 20px;
+    }
+
+    .lang-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .history-timeline::before {
+        right: 20px;
+        transform: none;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        align-items: flex-start;
+    }
+    
+    .timeline-item .timeline-content {
+        margin-right: 0 !important;
+        margin-left: 1rem !important;
+        text-align: right !important;
+    }
+    
+    .timeline-year {
+        min-width: 80px;
+        text-align: center;
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .leadership-grid,
+    .achievements-grid,
+    .partners-categories,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+    
+    .form-message {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .loading-icon {
+        font-size: 3rem;
+    }
+    
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    .leader-card,
+    .achievement-card,
+    .partner-category,
+    .value-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Generated Moroccan Context Backgrounds */
+.hero {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg'), 
+                      url('images/backgrounds/hero-main.svg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.about-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                      url('images/backgrounds/about-section.jpg'), 
+                      url('images/backgrounds/about-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.services-section {
+    background-image: linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.95)), 
+                      url('images/backgrounds/services-section.jpg'), 
+                      url('images/backgrounds/services-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.rights-section {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.9), rgba(44, 85, 48, 0.9)), 
+                      url('images/backgrounds/rights-section.jpg'), 
+                      url('images/backgrounds/rights-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                      url('images/backgrounds/contact-section.jpg'), 
+                      url('images/backgrounds/contact-section.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.legal-notices .page-header {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.8)), 
+                      url('images/backgrounds/legal-notices.jpg'), 
+                      url('images/backgrounds/legal-notices.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Legal Info Styles in Footer */
+.legal-info {
+    background: rgba(44, 85, 48, 0.1);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.legal-section h5 {
+    color: #d4af37;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.legal-section p {
+    color: #e8f5e8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.legal-section strong {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.legal-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.legal-link:hover {
+    color: #ffed4e;
+    border-bottom-color: #ffed4e;
+}
+
+.footer-bottom .copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    margin: 20px auto;
+    padding: 0;
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.4s ease;
+    direction: rtl;
+    text-align: right;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 25px 30px;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 4px solid #d4af37;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: calc(85vh - 120px);
+    overflow-y: auto;
+}
+
+.modal-body section {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid rgba(44, 85, 48, 0.1);
+}
+
+.modal-body section:last-child {
+    border-bottom: none;
+}
+
+.modal-body h3 {
+    color: #2c5530;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-body h3::before {
+    content: '';
+    width: 5px;
+    height: 24px;
+    background: linear-gradient(to bottom, #d4af37, #b8860b);
+    margin-left: 12px;
+    border-radius: 3px;
+}
+
+.modal-body p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.modal-body strong {
+    color: #2c5530;
+    font-weight: 700;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding-right: 0;
+    margin-right: 20px;
+}
+
+.modal-body ul li {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    padding-right: 25px;
+    position: relative;
+}
+
+.modal-body ul li::before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    color: #4a7c59;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.close {
+    color: white;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 11;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.close:hover,
+.close:focus {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Responsive for modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+        margin: 10px auto;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.4rem;
+        padding: 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-body h3 {
+        font-size: 1.1rem;
+    }
+    
+    .close {
+        top: 15px;
+        left: 15px;
+        font-size: 28px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .legal-info {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* Team Inline - Elegant & Responsive */
+.team-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.team-member-inline {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+    border: 2px solid #e8f5e8;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(44, 85, 48, 0.1);
+    transition: all 0.3s ease;
+    min-width: 280px;
+}
+
+.team-member-inline:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(44, 85, 48, 0.2);
+    border-color: #d4af37;
+}
+
+.team-member-inline .team-icon {
+    font-size: 2.5rem;
+    color: #4a7c59;
+    background: linear-gradient(135deg, #e8f5e8, #d4edda);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.team-member-inline:hover .team-icon {
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    color: #2c5530;
+    transform: rotate(360deg);
+}
+
+.team-member-inline .member-info {
+    text-align: right;
+}
+
+.team-member-inline .member-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c5530;
+    margin: 0 0 5px 0;
+}
+
+.team-member-inline .member-info h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #4a7c59;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Legal Info Simple - Footer */
+.legal-info-simple {
+    background: linear-gradient(135deg, rgba(44, 85, 48, 0.05), rgba(74, 124, 89, 0.05));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    align-items: center;
+}
+
+.legal-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e8f5e8;
+    font-size: 0.9rem;
+}
+
+.legal-item.full-width {
+    grid-column: 1 / -1;
+    padding-top: 10px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.legal-item i {
+    color: #d4af37;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.legal-item strong {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .team-inline {
+        gap: 25px;
+    }
+    
+    .team-member-inline {
+        min-width: 240px;
+        padding: 15px 25px;
+    }
+    
+    .team-member-inline .team-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-inline {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .team-member-inline {
+        width: 100%;
+        min-width: auto;
+        max-width: 400px;
+    }
+    
+    .legal-info-simple {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 12px;
+    }
+    
+    .legal-item {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member-inline {
+        padding: 12px 20px;
+    }
+    
+    .team-member-inline .team-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+    }
+    
+    .team-member-inline .member-info h3 {
+        font-size: 1.05rem;
+    }
+    
+    .team-member-inline .member-info h4 {
+        font-size: 0.85rem;
+    }
+}
+
+/* Hero Carousel Background */
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide:nth-child(1) {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/hero-main.jpg');
+}
+
+.carousel-slide:nth-child(2) {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/about-section.jpg');
+}
+
+.carousel-slide:nth-child(3) {
+    background-image: linear-gradient(rgba(44, 85, 48, 0.7), rgba(44, 85, 48, 0.7)), 
+                      url('images/backgrounds/services-section.jpg');
+}
+
+.hero {
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Tooltips and Accessibility */
+[title] {
+    position: relative;
+    cursor: help;
+}
+
+/* Enhanced Service Card Tooltips */
+.service-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    border-color: rgba(44, 85, 48, 0.2);
+}
+
+/* Enhanced Contact Item Tooltips */
+.contact-item {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Navigation Link Enhancement */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: linear-gradient(90deg, #ffd700, #d4af37);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Button Enhancement */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Focus states for accessibility */
+.nav-link:focus,
+.btn:focus,
+.lang-btn:focus,
+.hamburger:focus {
+    outline: 2px solid #ffd700;
+    outline-offset: 2px;
+}
+
+/* Skip to main content for accessibility */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 8px 16px;
+    background: #2c5530;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.skip-to-main:focus {
+    left: 8px;
+    top: 8px;
+}
+
+/* Dahir Tooltip */
+.dahir-info {
+    color: #ffd700;
+    font-size: 1rem;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.dahir-info:hover {
+    color: #ffed4e;
+    transform: scale(1.2);
+}
+
+.dahir-tooltip {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    animation: slideIn 0.3s ease;
+    direction: rtl;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.dahir-tooltip.show {
+    display: block;
+}
+
+.tooltip-header {
+    background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+    color: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #d4af37;
+}
+
+.tooltip-header h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.tooltip-header i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tooltip-header i:hover {
+    transform: rotate(90deg);
+    color: #ffd700;
+}
+
+.tooltip-body {
+    padding: 25px;
+    max-height: calc(80vh - 80px);
+    overflow-y: auto;
+    text-align: right;
+}
+
+.tooltip-body p {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(44, 85, 48, 0.05);
+    border-right: 4px solid #4a7c59;
+    border-radius: 8px;
+}
+
+.tooltip-body strong {
+    color: #2c5530;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Overlay pour le tooltip */
+.tooltip-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    backdrop-filter: blur(3px);
+}
+
+.tooltip-overlay.show {
+    display: block;
+}
+
+/* Responsive tooltip */
+@media (max-width: 768px) {
+    .dahir-tooltip {
+        width: 95%;
+        max-width: none;
+    }
+    
+    .tooltip-header {
+        padding: 15px 20px;
+    }
+    
+    .tooltip-header h4 {
+        font-size: 1.1rem;
+    }
+    
+    .tooltip-body {
+        padding: 20px;
+    }
+    
+    .tooltip-body p {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+}

@@ -1,0 +1,15 @@
+AI Image Generation Prompt for: hero-main
+
+Context: moroccan family justice scales golden hour atlas mountains
+
+Detailed Prompt:
+"Professional background image for Moroccan Association for the Defense of Fathers' and Children's Rights website. moroccan family justice scales golden hour atlas mountains. Style: modern, professional, warm, inviting. Colors: incorporate Moroccan flag colors (red, green), traditional patterns, golden accents. Lighting: warm, natural. Composition: suitable for website hero/section background with text overlay space. Aspect ratio: 16:9. Quality: high resolution, web-optimized."
+
+Alternative shorter prompt:
+"moroccan family justice scales golden hour atlas mountains, moroccan flag colors, professional website background, warm lighting, 16:9 aspect ratio"
+
+Technical specs:
+- Resolution: 1920x1080 minimum
+- Format: JPEG
+- Compression: web-optimized
+- Usage: Website background with text overlay

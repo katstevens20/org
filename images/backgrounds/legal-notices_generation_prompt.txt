@@ -1,0 +1,15 @@
+AI Image Generation Prompt for: legal-notices
+
+Context: traditional moroccan legal documents calligraphy
+
+Detailed Prompt:
+"Professional background image for Moroccan Association for the Defense of Fathers' and Children's Rights website. traditional moroccan legal documents calligraphy. Style: modern, professional, warm, inviting. Colors: incorporate Moroccan flag colors (red, green), traditional patterns, golden accents. Lighting: warm, natural. Composition: suitable for website hero/section background with text overlay space. Aspect ratio: 16:9. Quality: high resolution, web-optimized."
+
+Alternative shorter prompt:
+"traditional moroccan legal documents calligraphy, moroccan flag colors, professional website background, warm lighting, 16:9 aspect ratio"
+
+Technical specs:
+- Resolution: 1920x1080 minimum
+- Format: JPEG
+- Compression: web-optimized
+- Usage: Website background with text overlay

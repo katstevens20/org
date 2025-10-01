@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">الجمعية المغربية للدفاع عن حقوق الأب والأبناء</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="favicon-16x16.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="android-chrome-192x192.svg">
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="android-chrome-192x192.svg">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Meta Tags for PWA and SEO -->
+    <meta name="theme-color" content="#2c5530">
+    <meta name="msapplication-TileColor" content="#2c5530">
+    <meta name="description" content="الجمعية المغربية للدفاع عن حقوق الأب والأبناء - نحو عدالة أسرية حقيقية. المساعدة القانونية، الوساطة الأسرية، والدفاع عن حقوق الأسرة">
+    <meta name="keywords" content="حقوق الأب, حقوق الأطفال, العدالة الأسرية, المساعدة القانونية, الوساطة الأسرية, المغرب, جمعية">
+    <meta name="author" content="الجمعية المغربية للدفاع عن حقوق الأب والأبناء">
+    <meta property="og:title" content="الجمعية المغربية للدفاع عن حقوق الأب والأبناء">
+    <meta property="og:description" content="نحو عدالة أسرية حقيقية - الدفاع عن حقوق الآباء والأطفال في المغرب">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_MA">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">تخطي إلى المحتوى الرئيسي</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4a7c59;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2c5530;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="goldBarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffed4e;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#ffd700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="dropShadow">
+                                <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,0.4)"/>
+                            </filter>
+                            <filter id="goldGlow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <filter id="textShadow">
+                                <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="rgba(0,0,0,0.3)"/>
+                            </filter>
+                            <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+                                <stop offset="50%" style="stop-color:#f0f8f0;stop-opacity:0.8" />
+                                <stop offset="100%" style="stop-color:#e8f5e8;stop-opacity:0.6" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <!-- Background with soft glow -->
+                        <rect x="0" y="0" width="120" height="120" fill="url(#bgGlow)" rx="12"/>
+                        
+                        <!-- Decorative circle behind icon -->
+                        <circle cx="60" cy="40" r="32" fill="url(#greenGradient)" opacity="0.12"/>
+                        
+                        <!-- Father figure (center) -->
+                        <g transform="translate(60, 40)" filter="url(#dropShadow)">
+                            <ellipse cx="0" cy="4" rx="8" ry="18" fill="url(#greenGradient)"/>
+                            <circle cx="0" cy="-11" r="7" fill="url(#greenGradient)"/>
+                            <ellipse cx="-7" cy="7" rx="3" ry="12" transform="rotate(-20 -7 7)" fill="url(#greenGradient)"/>
+                            <ellipse cx="7" cy="7" rx="3" ry="12" transform="rotate(20 7 7)" fill="url(#greenGradient)"/>
+                        </g>
+                        
+                        <!-- Left child -->
+                        <g transform="translate(42, 47)" filter="url(#dropShadow)">
+                            <ellipse cx="0" cy="4" rx="5" ry="12" fill="url(#logoGradient)"/>
+                            <circle cx="0" cy="-7" r="5.5" fill="url(#logoGradient)"/>
+                        </g>
+                        
+                        <!-- Right child -->
+                        <g transform="translate(78, 47)" filter="url(#dropShadow)">
+                            <ellipse cx="0" cy="4" rx="5" ry="12" fill="url(#logoGradient)"/>
+                            <circle cx="0" cy="-7" r="5.5" fill="url(#logoGradient)"/>
+                        </g>
+                        
+                        <!-- Justice scales symbol -->
+                        <g transform="translate(60, 20)" fill="url(#logoGradient)">
+                            <line x1="-8" y1="0" x2="8" y2="0" stroke="url(#logoGradient)" stroke-width="2"/>
+                            <circle cx="-5" cy="0" r="2"/>
+                            <circle cx="5" cy="0" r="2"/>
+                            <line x1="0" y1="-4" x2="0" y2="4" stroke="url(#logoGradient)" stroke-width="2"/>
+                        </g>
+                        
+                        <!-- Golden bar at bottom -->
+                        <rect x="5" y="85" width="110" height="28" rx="8" 
+                              fill="url(#goldBarGradient)" 
+                              filter="url(#goldGlow)"
+                              opacity="0.85"/>
+                        <rect x="5" y="85" width="110" height="28" rx="8" 
+                              fill="none" 
+                              stroke="#ffd700" 
+                              stroke-width="1.5"
+                              opacity="0.5"/>
+                        
+                        <!-- Text on golden bar -->
+                        <text x="60" y="97" text-anchor="middle" font-family="Cairo, Arial, sans-serif" 
+                              font-size="8" font-weight="bold" fill="#1a3a1f" 
+                              filter="url(#textShadow)" opacity="0.9">
+                            الجمعية المغربية
+                        </text>
+                        <text x="60" y="107" text-anchor="middle" font-family="Cairo, Arial, sans-serif" 
+                              font-size="7.5" font-weight="600" fill="#2c5530" opacity="0.85">
+                            للدفاع عن حقوق الأب والأبناء
+                        </text>
+                    </svg>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link active" data-i18n="navigation.home" title="العودة إلى الصفحة الرئيسية">الرئيسية</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link" data-i18n="navigation.about" title="تعرف على رسالة وأهداف الجمعية">عن الجمعية</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link" data-i18n="navigation.services" title="اكتشف الخدمات التي نقدمها">خدماتنا</a></li>
+                    <li class="nav-item"><a href="#rights" class="nav-link" data-i18n="navigation.rights" title="تعرف على الحقوق التي ندافع عنها">الحقوق</a></li>
+                    <li class="nav-item"><a href="#team" class="nav-link" data-i18n="navigation.team" title="تعرف على أعضاء مكتب الجمعية">الفريق</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link" data-i18n="navigation.testimonials" title="اقرأ تجارب أعضاء الجمعية">شهادات</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="navigation.contact" title="تواصل معنا للحصول على المساعدة">اتصل بنا</a></li>
+                </ul>
+                
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="ar" title="العربية - تغيير اللغة إلى العربية" data-i18n-title="language.arabic">عر</button>
+                    <!-- Temporarily disabled for Arabic completion -->
+                     <button class="lang-btn" data-lang="fr" title="Français - Changer la langue en français">FR</button>
+                    <button class="lang-btn" data-lang="en" title="English - Change language to English">EN</button>
+                </div>
+                <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="القائمة الرئيسية" aria-expanded="false">
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                    <span class="bar" aria-hidden="true"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+    <section id="home" class="hero">
+        <!-- Background Carousel -->
+        <div class="hero-carousel">
+            <div class="carousel-slide active"></div>
+            <div class="carousel-slide"></div>
+            <div class="carousel-slide"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-i18n="hero.title">نحو عدالة أسرية حقيقية</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">الجمعية المغربية للدفاع عن حقوق الأب والأبناء - نناضل من أجل حقوق متساوية ومصالح الأطفال</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" data-i18n="hero.join_us">انضم إلينا</a>
+                    <a href="#about" class="btn btn-secondary" data-i18n="hero.learn_more">اعرف المزيد</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-family hero-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="about.title">عن الجمعية</h2>
+                <p data-i18n="about.subtitle">نعمل من أجل تحقيق العدالة الأسرية وحماية حقوق الآباء والأطفال في المغرب</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="about-details">
+                            <h3 data-i18n="about.mission.title">رسالتنا</h3>
+                            <p data-i18n="about.mission.text">ضمان حقوق الآباء والأطفال في إطار قانوني عادل ومتوازن، والدفاع عن مصالح الأسرة المغربية وفق القوانين الوطنية والدولية.</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="about-details">
+                            <h3 data-i18n="about.vision.title">رؤيتنا</h3>
+                            <p data-i18n="about.vision.text">مجتمع مغربي يضمن حقوق جميع أفراد الأسرة دون تمييز، ويحمي مصالح الأطفال الفضلى في جميع القرارات الأسرية.</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="about-details">
+                            <h3 data-i18n="about.values.title">قيمنا</h3>
+                            <p data-i18n="about.values.text">العدالة، المساواة، الشفافية، الحوار البناء، واحترام حقوق الإنسان كما هي منصوص عليها في الدستور المغربي.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label" data-i18n="about.stats.members">عضو نشط</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-gavel"></i>
+                        <div class="stat-number">11+</div>
+                        <div class="stat-label" data-i18n="about.stats.cases">قضية مدافع عنها</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-calendar"></i>
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label" data-i18n="about.stats.years">سنوات من النضال</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="services.title">خدماتنا</h2>
+                <p data-i18n="services.subtitle">نقدم مجموعة شاملة من الخدمات لحماية حقوق الآباء والأطفال</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" title="احصل على استشارة قانونية مجانية من خبراء الجمعية">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale" title="المساعدة القانونية"></i>
+                    </div>
+                    <h3 data-i18n="services.legal_aid.title">المساعدة القانونية</h3>
+                    <p data-i18n="services.legal_aid.text">تقديم الاستشارات القانونية والمساعدة في الإجراءات القضائية المتعلقة بقضايا الأسرة والطفولة.</p>
+                </div>
+                <div class="service-card" title="وساطة مهنية لحل النزاعات الأسرية بطريقة ودية">
+                    <div class="service-icon">
+                        <i class="fas fa-comments" title="الوساطة الأسرية"></i>
+                    </div>
+                    <h3 data-i18n="services.mediation.title">الوساطة الأسرية</h3>
+                    <p data-i18n="services.mediation.text">تسهيل الحوار بين الأطراف المتنازعة للوصول إلى حلول ودية تصب في مصلحة الأطفال.</p>
+                </div>
+                <div class="service-card" title="ورشات ومحاضرات توعوية حول حقوق الأسرة">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap" title="التوعية والتكوين"></i>
+                    </div>
+                    <h3 data-i18n="services.education.title">التوعية والتكوين</h3>
+                    <p data-i18n="services.education.text">تنظيم ورشات ومحاضرات توعوية حول حقوق الأسرة والقوانين المتعلقة بالأحوال الشخصية.</p>
+                </div>
+                <div class="service-card" title="دعم نفسي واجتماعي للآباء والأطفال">
+                    <div class="service-icon">
+                        <i class="fas fa-heart" title="الدعم النفسي"></i>
+                    </div>
+                    <h3 data-i18n="services.support.title">الدعم النفسي</h3>
+                    <p data-i18n="services.support.text">تقديم الدعم النفسي والاجتماعي للآباء والأطفال المتضررين من النزاعات الأسرية.</p>
+                </div>
+                <div class="service-card" title="مناصرة قضايا العدالة الأسرية على المستوى الوطني">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn" title="المناصرة والدفاع"></i>
+                    </div>
+                    <h3 data-i18n="services.advocacy.title">المناصرة والدفاع</h3>
+                    <p data-i18n="services.advocacy.text">مناصرة قضايا العدالة الأسرية والمطالبة بتعديل القوانين لضمان حقوق متوازنة.</p>
+                </div>
+                <div class="service-card" title="شراكات محلية ودولية لتعزيز حقوق الأسرة">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired" title="التشبيك والتعاون"></i>
+                    </div>
+                    <h3 data-i18n="services.networking.title">التشبيك والتعاون</h3>
+                    <p data-i18n="services.networking.text">بناء شراكات مع منظمات محلية ودولية للدفاع عن حقوق الأسرة والطفولة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rights Section -->
+    <section id="rights" class="rights">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="rights.title">الحقوق التي ندافع عنها</h2>
+                <p data-i18n="rights.subtitle">حقوق أساسية يجب حمايتها وضمانها للآباء والأطفال</p>
+            </div>
+            <div class="rights-content">
+                <div class="rights-tabs">
+                    <button class="tab-button active" onclick="openTab(event, 'fathers-rights')" data-i18n="rights.fathers_rights">حقوق الآباء</button>
+                    <button class="tab-button" onclick="openTab(event, 'children-rights')" data-i18n="rights.children_rights">حقوق الأطفال</button>
+                    <button class="tab-button" onclick="openTab(event, 'family-rights')" data-i18n="rights.family_rights">حقوق الأسرة</button>
+                </div>
+                
+                <div id="fathers-rights" class="tab-content active">
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <i class="fas fa-child"></i>
+                            <h4 data-i18n="rights.fathers.custody.title">الحق في الحضانة</h4>
+                            <p data-i18n="rights.fathers.custody.text">حق الأب في طلب حضانة أطفاله عندما تكون في مصلحتهم الفضلى</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-clock"></i>
+                            <h4 data-i18n="rights.fathers.visitation.title">حق الزيارة</h4>
+                            <p data-i18n="rights.fathers.visitation.text">ضمان حق الأب في زيارة أطفاله بانتظام والتواصل معهم</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-gavel"></i>
+                            <h4 data-i18n="rights.fathers.equality.title">المساواة أمام القانون</h4>
+                            <p data-i18n="rights.fathers.equality.text">معاملة عادلة ومتساوية في المحاكم دون تحيز أو تمييز</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-home"></i>
+                            <h4 data-i18n="rights.fathers.housing.title">حق السكن</h4>
+                            <p data-i18n="rights.fathers.housing.text">الحق في مسكن لائق لاستقبال الأطفال أثناء فترات الزيارة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="children-rights" class="tab-content">
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <i class="fas fa-heart"></i>
+                            <h4 data-i18n="rights.children.love_care.title">الحق في الحب والرعاية</h4>
+                            <p data-i18n="rights.children.love_care.text">حق الطفل في الحصول على حب ورعاية كلا الوالدين</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4 data-i18n="rights.children.education.title">الحق في التعليم</h4>
+                            <p data-i18n="rights.children.education.text">ضمان استمرارية تعليم الطفل دون انقطاع بسبب النزاعات الأسرية</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4 data-i18n="rights.children.protection.title">الحق في الحماية</h4>
+                            <p data-i18n="rights.children.protection.text">حماية الطفل من جميع أشكال العنف والإهمال والاستغلال</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-comments"></i>
+                            <h4 data-i18n="rights.children.expression.title">الحق في التعبير</h4>
+                            <p data-i18n="rights.children.expression.text">حق الطفل في التعبير عن رأيه في الأمور التي تخصه</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="family-rights" class="tab-content">
+                    <div class="rights-grid">
+                        <div class="right-item">
+                            <i class="fas fa-users"></i>
+                            <h4 data-i18n="rights.family.unity.title">وحدة الأسرة</h4>
+                            <p data-i18n="rights.family.unity.text">الحفاظ على الروابط الأسرية وعدم تفكيك الأسرة إلا لضرورة قصوى</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <h4 data-i18n="rights.family.fair_distribution.title">العدالة في التوزيع</h4>
+                            <p data-i18n="rights.family.fair_distribution.text">توزيع عادل للمسؤوليات والحقوق بين أفراد الأسرة</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-handshake"></i>
+                            <h4 data-i18n="rights.family.constructive_dialogue.title">الحوار البناء</h4>
+                            <p data-i18n="rights.family.constructive_dialogue.text">تشجيع الحوار والتفاهم لحل النزاعات الأسرية بطريقة ودية</p>
+                        </div>
+                        <div class="right-item">
+                            <i class="fas fa-globe"></i>
+                            <h4 data-i18n="rights.family.cultural_respect.title">احترام الهوية</h4>
+                            <p data-i18n="rights.family.cultural_respect.text">احترام الهوية الثقافية والدينية للأسرة المغربية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="team.title">أعضاء مكتب الجمعية</h2>
+                <p data-i18n="team.subtitle">فريق متفانٍ يعمل من أجل الدفاع عن حقوق الأسرة المغربية</p>
+            </div>
+            <div class="team-inline">
+                <div class="team-member-inline">
+                    <i class="fas fa-user-tie team-icon"></i>
+                    <div class="member-info">
+                        <h3 data-i18n="team.president.name">إدريس الزاوي</h3>
+                        <h4 data-i18n="team.president.title">رئيس الجمعية</h4>
+                    </div>
+                </div>
+                <div class="team-member-inline">
+                    <i class="fas fa-user-tie team-icon"></i>
+                    <div class="member-info">
+                        <h3 data-i18n="team.vp.name">عبد الله المنصوري</h3>
+                        <h4 data-i18n="team.vp.title">نائب الرئيس</h4>
+                    </div>
+                </div>
+                <div class="team-member-inline">
+                    <i class="fas fa-user-tie team-icon"></i>
+                    <div class="member-info">
+                        <h3 data-i18n="team.secretary.name">رشيد العمراني</h3>
+                        <h4 data-i18n="team.secretary.title">الكاتب العام</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="testimonials.title">شهادات الأعضاء</h2>
+                <p data-i18n="testimonials.subtitle">تجارب حقيقية من أعضاء الجمعية الذين استفادوا من خدماتنا</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-right"></i>
+                        <p data-i18n="testimonials.testimonial1.text">"بفضل الجمعية تمكنت من استعادة حقي في زيارة أطفالي بانتظام. الدعم القانوني والنفسي الذي تلقيته كان لا يقدر بثمن."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial1.author">أحمد م.</h4>
+                            <span data-i18n="testimonials.testimonial1.since">عضو منذ 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-right"></i>
+                        <p data-i18n="testimonials.testimonial2.text">"الوساطة الأسرية التي قدمتها الجمعية ساعدتني على التوصل إلى اتفاق ودي مع طليقتي لمصلحة أطفالنا."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial2.author">محمد ك.</h4>
+                            <span data-i18n="testimonials.testimonial2.since">عضو منذ 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-right"></i>
+                        <p data-i18n="testimonials.testimonial3.text">"الجمعية لم تساعدني فقط في قضيتي، بل علمتني أيضاً حقوقي وواجباتي كأب. شكراً لكم على هذا العمل النبيل."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4 data-i18n="testimonials.testimonial3.author">خالد أ.</h4>
+                            <span data-i18n="testimonials.testimonial3.since">عضو منذ 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="contact.title">اتصل بنا</h2>
+                <p data-i18n="contact.subtitle">نحن هنا لمساعدتك ودعمك في الدفاع عن حقوقك</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info-grid">
+                    <div class="contact-item" title="مقر الجمعية في العاصمة الرباط">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt" title="موقع الجمعية"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.address">العنوان</h4>
+                            <p data-i18n="contact.info.address_text">الرباط، المغرب</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" title="تواصل معنا عبر واتساب للرد السريع">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp" style="color: #25D366;" title="واتساب"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.phone">واتساب</h4>
+                            <p dir="ltr" style="text-align: right;"><a href="https://wa.me/212676703912" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;" title="اضغط للمراسلة عبر واتساب">+212 676-703912</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item" title="راسلنا عبر البريد الإلكتروني">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope" title="البريد الإلكتروني"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.email">البريد الإلكتروني</h4>
+                            <p><a href="mailto:ultradrisdzawa@gmail.com" style="color: #2c5530; text-decoration: none; font-weight: bold;" title="اضغط لإرسال رسالة إلكترونية">ultradrisdzawa@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item" title="تابعنا على فيسبوك للأخبار والفعاليات">
+                        <div class="contact-icon">
+                            <i class="fab fa-facebook" style="color: #1877F2;" title="فيسبوك"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-i18n="contact.facebook">فيسبوك</h4>
+                            <p><a href="https://www.facebook.com/share/1A1J2qMxGW/" target="_blank" style="color: #1877F2; text-decoration: none; font-weight: bold;" data-i18n="contact.info.facebook_text" title="زيارة صفحتنا على فيسبوك">تابعونا على صفحتنا الرسمية</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-notice">
+                    <i class="fas fa-shield-alt"></i>
+                    <p data-i18n="contact.privacy_notice">نحن لا نقوم بجمع أو تخزين أي بيانات شخصية عبر هذا الموقع. للتواصل معنا، يرجى استخدام قنوات الاتصال المباشرة أعلاه.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.title">الجمعية المغربية للدفاع عن حقوق الأب والأبناء</h3>
+                    <p data-i18n="footer.organization_type" style="font-style: italic; color: #d4af37; margin-bottom: 10px;">منظمة غير ربحية</p>
+                    <p data-i18n="footer.description">نعمل من أجل عدالة أسرية حقيقية وحماية حقوق جميع أفراد الأسرة المغربية.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1A1J2qMxGW/" target="_blank" aria-label="Facebook" data-i18n-aria-label="social.facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/212676703912" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:ultradrisdzawa@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="YouTube" data-i18n-aria-label="social.youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.quick_links">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#about" data-i18n="footer.links.about">عن الجمعية</a></li>
+                        <li><a href="#services" data-i18n="footer.links.services">خدماتنا</a></li>
+                        <li><a href="#rights" data-i18n="footer.links.rights">الحقوق</a></li>
+                        <li><a href="#contact" data-i18n="footer.links.contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.services">الخدمات</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.links.legal_aid">المساعدة القانونية</a></li>
+                        <li><a href="#" data-i18n="footer.links.mediation">الوساطة الأسرية</a></li>
+                        <li><a href="#" data-i18n="footer.links.training">التوعية والتكوين</a></li>
+                        <li><a href="#" data-i18n="footer.links.support">الدعم النفسي</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.contact_info">معلومات الاتصال</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.contact_details.location">الرباط، المغرب</span></p>
+                        <p><i class="fab fa-whatsapp" style="color: #25D366;"></i> <a href="https://wa.me/212676703912" target="_blank" style="color: #d4af37; text-decoration: none; font-weight: bold;" dir="ltr">+212 676-703912</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:ultradrisdzawa@gmail.com" style="color: #d4af37; text-decoration: none;">ultradrisdzawa@gmail.com</a></p>
+                        <p><i class="fab fa-facebook" style="color: #1877F2;"></i> <a href="https://www.facebook.com/share/1A1J2qMxGW/" target="_blank" style="color: #d4af37; text-decoration: none;">صفحتنا على فيسبوك</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="legal-info-simple">
+                    <div class="legal-item">
+                        <i class="fas fa-building"></i>
+                        <strong data-i18n="footer.legal.org_name">الجمعية المغربية للدفاع عن حقوق الأب والأبناء</strong>
+                    </div>
+                    <div class="legal-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-i18n="footer.legal.address">الرباط 10000، المغرب</span>
+                    </div>
+                    <div class="legal-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span data-i18n="footer.legal.receipt">وصل الإيداع رقم 2023/123 - 2023/01/01</span>
+                    </div>
+                    <div class="legal-item">
+                        <i class="fas fa-gavel"></i>
+                        <span data-i18n="footer.legal.dahir">ظهير 15 نوفمبر 1958 (1.58.376)</span>
+                        <i class="fas fa-info-circle dahir-info" onclick="toggleDahirTooltip()"></i>
+                        <div class="dahir-tooltip" id="dahirTooltip">
+                            <div class="tooltip-header">
+                                <h4 data-i18n="tooltip.dahir.title">مقتطف من الظهير الشريف</h4>
+                                <i class="fas fa-times" onclick="toggleDahirTooltip()"></i>
+                            </div>
+                            <div class="tooltip-body">
+                                <p data-i18n="tooltip.dahir.article1"><strong>الفصل 1:</strong> للمغاربة الحق في تأسيس الجمعيات بحرية دون إذن مسبق، وذلك طبقا للشروط المحددة في هذا الظهير.</p>
+                                <p data-i18n="tooltip.dahir.article5"><strong>الفصل 5:</strong> يجب على كل جمعية أن تقدم تصريحا إلى مقر السلطة الإدارية المحلية مرفقا بنسختين من قانونها الأساسي.</p>
+                                <p data-i18n="tooltip.dahir.objective"><strong>الهدف:</strong> تنظيم حق تكوين الجمعيات وضمان شفافية عملها في إطار القانون المغربي.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legal-item full-width">
+                        <i class="fas fa-bullseye"></i>
+                        <span data-i18n="footer.legal.objective">الهدف: الدفاع عن حقوق الآباء والأطفال، المساعدة القانونية، الوساطة الأسرية (القانون 09-08)</span>
+                    </div>
+                </div>
+                <p class="copyright" data-i18n="footer.copyright"><span id="copyright-year">2024</span> &copy; الجمعية المغربية للدفاع عن حقوق الأب والأبناء. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal: Privacy Policy -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="privacy">&times;</span>
+            <h2 data-i18n="modal.privacy.title">سياسة الخصوصية وحماية البيانات</h2>
+            <div class="modal-body">
+                <section>
+                    <h3 data-i18n="modal.privacy.intro_title">1. مقدمة</h3>
+                    <p data-i18n="modal.privacy.intro_text">تلتزم الجمعية المغربية للدفاع عن حقوق الأب والأبناء بحماية خصوصية البيانات الشخصية وفقاً للقانون المغربي رقم 09-08 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.privacy.legal_title">2. الإطار القانوني</h3>
+                    <p data-i18n="modal.privacy.legal_text">القانون رقم 09-08 الصادر بتنفيذه الظهير الشريف رقم 1.09.15 بتاريخ 18 فبراير 2009 المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.privacy.collection_title">3. جمع البيانات</h3>
+                    <p data-i18n="modal.privacy.collection_text">نحن لا نقوم بجمع أي بيانات شخصية عبر هذا الموقع. أي تواصل يتم عبر القنوات المباشرة (واتساب، البريد الإلكتروني) خارج الموقع ويخضع لسياسات الخصوصية الخاصة بتلك المنصات.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.privacy.rights_title">4. حقوقك</h3>
+                    <ul>
+                        <li data-i18n="modal.privacy.right1">الحق في الوصول إلى بياناتك الشخصية</li>
+                        <li data-i18n="modal.privacy.right2">الحق في تصحيح البيانات غير الدقيقة</li>
+                        <li data-i18n="modal.privacy.right3">الحق في حذف بياناتك (الحق في النسيان)</li>
+                        <li data-i18n="modal.privacy.right4">الحق في الاعتراض على معالجة بياناتك</li>
+                        <li data-i18n="modal.privacy.right5">الحق في تقديم شكوى إلى اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي (CNDP)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.privacy.contact_title">5. الاتصال</h3>
+                    <p><strong data-i18n="modal.privacy.dpo">مسؤول حماية البيانات:</strong></p>
+                    <p data-i18n="modal.privacy.dpo_email">البريد الإلكتروني: dpo@amddpe.ma</p>
+                    <p data-i18n="modal.privacy.address">العنوان: الرباط 10000، المغرب</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Terms & Conditions -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="terms">&times;</span>
+            <h2 data-i18n="modal.terms.title">الشروط والأحكام</h2>
+            <div class="modal-body">
+                <section>
+                    <h3 data-i18n="modal.terms.usage_title">1. استخدام الموقع</h3>
+                    <p data-i18n="modal.terms.usage_text">هذا الموقع هو موقع معلوماتي تابع للجمعية المغربية للدفاع عن حقوق الأب والأبناء. المعلومات المقدمة لأغراض إعلامية فقط ولا تشكل استشارة قانونية.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.terms.property_title">2. الملكية الفكرية</h3>
+                    <p data-i18n="modal.terms.property_text">جميع محتويات هذا الموقع (نصوص، صور، شعارات) محمية بموجب قوانين الملكية الفكرية المغربية والدولية. يحظر نسخ أو توزيع المحتوى دون إذن كتابي مسبق من الجمعية.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.terms.liability_title">3. المسؤولية</h3>
+                    <p data-i18n="modal.terms.liability_text">الجمعية تبذل قصارى جهدها لضمان دقة المعلومات المقدمة، لكنها لا تتحمل أي مسؤولية عن أي أخطاء أو سهو أو عواقب ناتجة عن استخدام المعلومات الواردة في هذا الموقع.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.terms.external_title">4. الروابط الخارجية</h3>
+                    <p data-i18n="modal.terms.external_text">قد يحتوي الموقع على روابط لمواقع خارجية. الجمعية ليست مسؤولة عن محتوى أو سياسات الخصوصية الخاصة بتلك المواقع.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.terms.law_title">5. القانون الواجب التطبيق</h3>
+                    <p data-i18n="modal.terms.law_text">تخضع هذه الشروط للقانون المغربي. أي نزاع يخضع للاختصاص الحصري للمحاكم المغربية.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Donations Policy -->
+    <div id="donationsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal="donations">&times;</span>
+            <h2 data-i18n="modal.donations.title">سياسة التبرعات والمساعدات المالية</h2>
+            <div class="modal-body">
+                <section>
+                    <h3 data-i18n="modal.donations.nature_title">1. طبيعة الجمعية</h3>
+                    <p data-i18n="modal.donations.nature_text">الجمعية المغربية للدفاع عن حقوق الأب والأبناء هي منظمة غير ربحية مسجلة طبقاً لظهير 1958. جميع الأموال المستلمة تُستخدم حصرياً لتحقيق أهداف الجمعية المنصوص عليها في القانون الأساسي.</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.donations.transparency_title">2. الشفافية المالية</h3>
+                    <p data-i18n="modal.donations.transparency_text">تلتزم الجمعية بأعلى معايير الشفافية المالية:</p>
+                    <ul>
+                        <li data-i18n="modal.donations.transparency1">نشر التقرير المالي السنوي</li>
+                        <li data-i18n="modal.donations.transparency2">مراجعة حسابات مستقلة</li>
+                        <li data-i18n="modal.donations.transparency3">توثيق جميع المساهمات والنفقات</li>
+                        <li data-i18n="modal.donations.transparency4">الامتثال لقوانين مكافحة غسيل الأموال</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.donations.usage_title">3. استخدام التبرعات</h3>
+                    <p data-i18n="modal.donations.usage_text">تُستخدم التبرعات في:</p>
+                    <ul>
+                        <li data-i18n="modal.donations.usage1">تقديم المساعدة القانونية المجانية للأعضاء</li>
+                        <li data-i18n="modal.donations.usage2">تنظيم ورشات توعوية وتكوينية</li>
+                        <li data-i18n="modal.donations.usage3">دعم حملات المناصرة والدفاع عن حقوق الأسرة</li>
+                        <li data-i18n="modal.donations.usage4">تغطية المصاريف التشغيلية للجمعية</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.donations.methods_title">4. طرق التبرع</h3>
+                    <p data-i18n="modal.donations.methods_text">لا نقبل التبرعات عبر الإنترنت حالياً. للمساهمة في عمل الجمعية، يرجى الاتصال بنا مباشرة:</p>
+                    <p data-i18n="modal.donations.contact">واتساب: +212 676-703912 | البريد الإلكتروني: ultradrisdzawa@gmail.com</p>
+                </section>
+                <section>
+                    <h3 data-i18n="modal.donations.receipt_title">5. إيصالات التبرع</h3>
+                    <p data-i18n="modal.donations.receipt_text">نصدر إيصالات رسمية لجميع التبرعات وفقاً للقوانين الضريبية المغربية، مما يتيح للمتبرعين الاستفادة من التخفيضات الضريبية المعمول بها.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="moroccan-backgrounds.js"></script>
+    <script src="carousel-images.js"></script>
+    <script src="carousel.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
