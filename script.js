@@ -1,5 +1,8 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // CRITICAL: Prevent horizontal scrolling and swiping
+    preventHorizontalSwipe();
+    
     // Initialize tooltips for better UX
     initializeTooltips();
     
@@ -58,30 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Active Navigation Link on Scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    function highlightNavigation() {
-        const scrollY = window.pageYOffset;
-        const headerHeight = document.querySelector('.header').offsetHeight;
-
-        sections.forEach((section, index) => {
-            const sectionHeight = section.offsetHeight;
-            const sectionTop = section.offsetTop - headerHeight - 100;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    }
-
-    window.addEventListener('scroll', highlightNavigation);
+    // Active Navigation Link on Scroll (handled globally via debounced handler)
 
     // Intersection Observer for Animations
     const observerOptions = {
@@ -252,6 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
             behavior: 'smooth'
         });
     });
+
+    // Modal system: intelligent handling for multiple modals
+    setupModals();
 });
 
 // Tab Functionality for Rights Section
@@ -287,6 +270,26 @@ function debounce(func, wait) {
     };
 }
 
+// Highlight current nav link on scroll (global)
+function highlightNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - headerHeight - 100;
+        const sectionId = section.getAttribute('id');
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    });
+}
+
 // Optimized scroll handler
 const debouncedScrollHandler = debounce(() => {
     highlightNavigation();
@@ -302,11 +305,13 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-        
-        if (navMenu.classList.contains('active')) {
+        if (navMenu && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
         }
+        // Close any open modal
+        const openModal = document.querySelector('.modal.show');
+        if (openModal) closeModal(openModal);
     }
     
     // Enter key for button-like elements
@@ -321,6 +326,84 @@ if ('performance' in window) {
         const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
         console.log(`Page loaded in ${loadTime}ms`);
     });
+}
+
+// Modal Infrastructure
+function setupModals() {
+    // Attach click handlers to footer legal links and any other triggers
+    document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const target = trigger.getAttribute('data-modal-target');
+            const modal = document.getElementById(`${target}Modal`);
+            if (modal) openModal(modal, trigger);
+        }, { passive: false });
+    });
+
+    // Close buttons
+    document.querySelectorAll('[data-close-modal]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modal = btn.closest('.modal');
+            if (modal) closeModal(modal);
+        });
+    });
+
+    // Overlay click to close
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+}
+
+let lastFocusedElement = null;
+
+function openModal(modal, triggerEl = null) {
+    lastFocusedElement = triggerEl || document.activeElement;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first focusable element inside modal, or title
+    const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const title = modal.querySelector('h2');
+    (focusable || title)?.focus?.();
+
+    // Trap focus within modal
+    modal.addEventListener('keydown', trapFocus);
+}
+
+function closeModal(modal) {
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    modal.removeEventListener('keydown', trapFocus);
+    if (lastFocusedElement && document.contains(lastFocusedElement)) {
+        lastFocusedElement.focus();
+    }
+}
+
+function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const modal = e.currentTarget;
+    const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (focusableElements.length === 0) return;
+    const first = focusableElements[0];
+    const last = focusableElements[focusableElements.length - 1];
+    if (e.shiftKey) {
+        if (document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+        }
+    } else {
+        if (document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
+        }
+    }
 }
 
 // Service Worker Registration (for PWA functionality)
@@ -425,3 +508,42 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// CRITICAL FUNCTION: Prevent horizontal swipe and scrolling
+function preventHorizontalSwipe() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    // Gently prevent horizontal scroll
+    document.addEventListener('scroll', function() {
+        if (window.scrollX !== 0) {
+            window.scrollTo(0, window.scrollY);
+        }
+    }, { passive: true });
+    
+    // Track touch start position
+    document.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    // Prevent horizontal swipe gestures only
+    document.addEventListener('touchmove', function(e) {
+        const touchMoveX = e.touches[0].clientX;
+        const touchMoveY = e.touches[0].clientY;
+        const deltaX = Math.abs(touchMoveX - touchStartX);
+        const deltaY = Math.abs(touchMoveY - touchStartY);
+        
+        // Only prevent if it's clearly a horizontal swipe
+        if (deltaX > deltaY && deltaX > 30) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Check horizontal scroll position periodically
+    setInterval(function() {
+        if (window.scrollX !== 0) {
+            window.scrollTo(0, window.scrollY);
+        }
+    }, 200);
+}
